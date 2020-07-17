@@ -81,17 +81,18 @@ class BSTNode:
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
         # call the anonymous function on `self.value`
-        fn(self.value)
+        if self.value:
+            fn(self.value)
 
-        # if this node has a left child 
-        if self.left:
-            # pass the anonymous fn to it 
-            self.left.for_each(fn)
-        # if this node has a right child 
-        if self.right:
-            # pass the anonymous fn to it 
-            self.right.for_each(fn)
-
+            # if this node has a left child 
+            if self.left:
+                # pass the anonymous fn to it 
+                self.left.for_each(fn)
+            # if this node has a right child 
+            if self.right:
+                # pass the anonymous fn to it 
+                self.right.for_each(fn)
+        return
     def iterative_depth_first_for_each(self, fn):
         stack = []
         stack.append(self)
